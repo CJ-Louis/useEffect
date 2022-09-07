@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Message from "./components/Message";
 import PictureDisplay from "./components/PictureDisplay";
 
@@ -11,6 +11,30 @@ function App() {
   const [isBrown, setIsBrown] = useState(false);
   const [isLightBrown, setIsLightBrown] = useState(false);
   const [isYellow, setIsYellow] = useState(false);
+
+  useEffect(() => {
+    console.log('Color Change :: red?', isRed);
+    // console.log('Color Change :: orange?', isOrange);
+    // console.log('Color Change :: brown?', isBrown);
+    // console.log('Color Change :: light brown?', isLightBrown);
+    // console.log('Color Change :: yellow?', isYellow);
+  }, [isRed]);
+
+  useEffect(() => {
+    console.log('Color Change :: orange?', isOrange);
+  }, [isOrange]);
+
+  useEffect(() => {
+    console.log('Color Change :: brown?', isBrown);
+  }, [isBrown]);
+
+  useEffect(() => {
+    console.log('Color Change :: light brown?', isLightBrown);
+  }, [isLightBrown]);
+  
+  useEffect(() => {
+    console.log('Color Change :: yellow?', isYellow);
+  }, [isYellow]);
 
   return (
     <>
