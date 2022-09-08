@@ -48,7 +48,7 @@ function PictureDisplay ({ size, featherCount, featherColors }) {
   const colors = [];
   if (!featherColors || featherColors.length === 0) featherColors = [''];
   for (let i=0; i<featherCount; i++) {
-    colors.push(featherColors[i % featherColors.length]);
+    colors.push(featherColors[i % featherColors.length]); // divides feathers equally to distribute colors
   }
 
 
@@ -69,14 +69,14 @@ function PictureDisplay ({ size, featherCount, featherColors }) {
           cname = 'small';
           break;
       }
-      console.log("This is C name", cname);
-      //  setSizeClass(cname);
+      //console.log("This is C name", cname);
+        setSizeClass(cname);
     }, [size])
 
 
 
   return (
-    <div className={`image-area medium`}>
+    <div className={`image-area ${sizeClass}`}>
       {colors.map((c, i) =>
         <img
           key={feathers[i]}

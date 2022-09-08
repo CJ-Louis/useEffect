@@ -1,14 +1,33 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function Message({ size }) {
 
+const [sizeClass, setSizeClass] = useState('');
+
   useEffect( () => {
-    console.log('Message', size);
-  }, [size])
+
+  let cname = '';
+  switch (size) {
+    case 'm':
+      cname = 'medium';
+      break;
+    case 'l':
+      cname = 'large';
+      break;
+    case 'xl':
+      cname = 'xlarge';
+      break;
+    default:
+      cname = 'small';
+      break;
+  }
+  //console.log("This is C name", cname);
+  setSizeClass(cname);
+  },[size])
 
 
   return (
-    <div className="message medium">
+    <div className={`message ${sizeClass}`}>
       (Oh my! Your bird is naked!)
     </div>
   );
